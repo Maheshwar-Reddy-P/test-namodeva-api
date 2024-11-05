@@ -13,7 +13,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/welcome', (req, res) => {
-    res.send('Welcome to AWS Lambda Function!');
+    res.send('Welcome to AWS Lambda Function From GitHub!');
 });
 
 app.listen(PORT, (req, res) => {
