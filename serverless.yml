@@ -1,0 +1,17 @@
+service: my-express-api  # Name of the service
+
+provider:
+  name: aws  # Cloud provider
+  runtime: nodejs20.x  # Node.js runtime for Lambda
+
+functions:
+  api:
+    name: NamoDevaAPI  # Use the name of your existing Lambda function
+    arn: arn:aws:lambda:ap-south-1:724772066864:function:NamoDevaAPI  # ARN of your existing Lambda function
+    handler: index.handler  # The handler (file and exported function)
+    events:
+      - http:    # Define the HTTP event that triggers the Lambda function
+          path: /{proxy+}  # Catch-all path for all routes under this API Gateway
+          method: any      # All HTTP methods (GET, POST, PUT, DELETE, etc.)
+
+# Optional: Add custom stage, region, or environment variables
